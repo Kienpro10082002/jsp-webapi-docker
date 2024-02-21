@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REST API Example</title>
+</head>
+<body>
+<h1>Hello and Goodbye</h1>
+<button onclick="getHello()">Say Hello</button>
+<button onclick="getGoodbye()">Say Goodbye</button>
+<div id="output"></div>
+
+<script>
+    function getHello() {
+        fetch('/hello')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('output').innerText = data;
+            });
+    }
+
+    function getGoodbye() {
+        fetch('/goodbye')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('output').innerText = data;
+            });
+    }
+</script>
+</body>
+</html>
